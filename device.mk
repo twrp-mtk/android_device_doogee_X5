@@ -14,6 +14,14 @@
 # limitations under the License.
 #
 
+#
+# This file sets variables that control the way modules are built
+# thorughout the system. It should not be used to conditionally
+# disable makefiles (the proper mechanism to control what gets
+# included in a build is to use PRODUCT_PACKAGES in a product
+# definition file).
+#
+
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
@@ -160,10 +168,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmrdump \
     mrdump_tool
-
-# Hack for prebuilt kernel
-$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
-$(shell touch $(OUT)/obj/KERNEL_OBJ/usr/export_includes)
 
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
