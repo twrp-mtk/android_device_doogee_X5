@@ -44,7 +44,6 @@ $(call inherit-product, device/common/gps/gps_us_supl.mk)
 $(call inherit-product-if-exists, vendor/doogee/X5/X5-vendor.mk)
 
 DEVICE_PACKAGE_OVERLAYS += device/doogee/X5/overlay
-PRODUCT_PACKAGE_OVERLAYS += device/doogee/X5/overlay
 
 LOCAL_PATH := device/doogee/X5
 ifeq ($(TARGET_PREBUILT_KERNEL),)
