@@ -80,6 +80,9 @@ MTK_HARDWARE := true
 
 # Offline charging
 BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
+BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
+BOARD_CHARGER_ENABLE_SUSPEND := true
+BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # RIL 
 BOARD_RIL_CLASS := ../../../device/doogee/X5/ril/
@@ -133,4 +136,4 @@ BOARD_SEPOLICY_DIRS := \
 POLICYVERS := 29
 
 BLOCK_BASED_OTA := false
-TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so # for symbols in mtkaudio.cpp + mtksymbols
+TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so:libmtk_shyms.so
