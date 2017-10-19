@@ -506,5 +506,4 @@ public class MT6580 extends RIL implements CommandsInterface {
         }
         super.iccIOForApp(command, fileid, path, p1, p2, p3, data, pin2, aid, result);
     }
-
 }
