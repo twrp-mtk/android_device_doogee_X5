@@ -7,7 +7,7 @@ rild.libargs=-d /dev/ttyC0
 
 # MTK, Infinity, 20090720 {
 wifi.interface=wlan0
-ro.hardware=mt6737m
+ro.hardware=mt6580
 # MTK, Infinity, 20090720 }
 
 # MTK, mtk03034, 20101210 {
@@ -25,7 +25,7 @@ mediatek.wlan.ctia=0
 wifi.tethering.interface=ap0
 #
 
-ro.opengles.version=196608
+ro.opengles.version=131072
 
 wifi.direct.interface=p2p0
 
@@ -45,18 +45,16 @@ ro.sf.lcd_density=320
 # performance
 ro.mtk_perf_simple_start_win=1
 ro.mtk_perf_response_time=1
+
 persist.sys.timezone = Europe/Amsterdam
 
 ro.mtk_perfservice_support=1
 
 persist.logd.logpersistd=logcatd
 
-ro.telephony.ril_class=MT6580
-ro.kernel.android.checkjni=0
-ro.telephony.ril.config=signalstrength
 ro.telephony.default_network=9
 
 # ClearMotion
 persist.sys.display.clearMotion=0
-# ro.mtk_clearmotion_support=1
+
 fmradio.driver.enable=1

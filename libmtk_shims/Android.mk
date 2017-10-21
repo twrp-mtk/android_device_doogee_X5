@@ -22,7 +22,7 @@ LOCAL_SRC_FILES := \
 
 
 LOCAL_SHARED_LIBRARIES := libdpframework
-LOCAL_MODULE := libmtk_shyms
+LOCAL_MODULE := libmtk_shims
 LOCAL_MODULE_TAGS := optional
 
 include $(BUILD_SHARED_LIBRARY)

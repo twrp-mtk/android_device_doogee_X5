@@ -14,14 +14,6 @@
 # limitations under the License.
 #
 
-#
-# This file sets variables that control the way modules are built
-# thorughout the system. It should not be used to conditionally
-# disable makefiles (the proper mechanism to control what gets
-# included in a build is to use PRODUCT_PACKAGES in a product
-# definition file).
-#
-
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
@@ -31,8 +23,10 @@ ro.allow.mock.location=1 \
 ro.debuggable=1 \
 ro.adb.secure=0 \
 persist.service.acm.enable=0 \
+persist.sys.usb.config=mtp \
 ro.mount.fs=EXT4 \
 debug.hwui.render_dirty_regions=false \
+ro.sf.lcd_density=320 \
 persist.radio.multisim.config=dsds \
 ro.mtk_lte_support=1 \
 ro.telephony.ril_class=MT6580 \
@@ -62,7 +56,7 @@ endif
 PRODUCT_PACKAGES += \
     libxlog \
     libmtk_symbols \
-    libmtk_shyms
+    libmtk_shims
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -168,6 +162,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     libmrdump \
     mrdump_tool
+
+PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
+PRODUCT_NAME := full_X5
+PRODUCT_DEVICE := X5
 
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
