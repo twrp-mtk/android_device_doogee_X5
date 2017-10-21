@@ -6,7 +6,7 @@
 # Currently we dont have e2fsck compiled. So fs check would fail.
 
 #<src>                                                          <mnt_point>    <type>  <mnt_flags and options>                                                                    <fs_mgr_flags>
-/dev/misc		                                                    /misc          emmc    defaults defaults
+/dev/misc                                                       /misc          emmc    defaults defaults
 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/userdata  /data          ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic  wait,check,encryptable=/dev/block/platform/msm_sdcc.1/by-name/metadata
 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/system    /system        ext4    ro,barrier=1                                                                               wait
 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/cache     /cache         ext4    noatime,nosuid,nodev,barrier=1,data=ordered,nomblk_io_submit,noauto_da_alloc,errors=panic  wait,check
