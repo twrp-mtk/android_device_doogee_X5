@@ -47,7 +47,7 @@ TARGET_PREBUILT_KERNEL := device/doogee/X5/prebuilt/kernel
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # RECOVERY
-TARGET_RECOVERY_FSTAB := device/doogee/X5/recovery/root/twrp.fstab
+TARGET_RECOVERY_FSTAB := device/doogee/X5/recovery/root/etc/twrp.fstab
 
 # PARTTIONS
 # We need the partitions size in decimal
