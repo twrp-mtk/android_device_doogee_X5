@@ -105,10 +105,7 @@ BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
-# CWM
 TARGET_RECOVERY_FSTAB := device/doogee/X5/rootdir/root/recovery.fstab
-TARGET_PREBUILT_RECOVERY_KERNEL := device/doogee/X5/kernel
-BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP stuff
 TW_THEME := portrait_hdpi
