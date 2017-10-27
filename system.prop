@@ -45,7 +45,7 @@ ro.sf.lcd_density=320
 # performance
 ro.mtk_perf_simple_start_win=1
 ro.mtk_perf_response_time=1
-persist.sys.timezone = Europe/Moscow
+persist.sys.timezone = Europe/Amsterdam
 
 ro.mtk_perfservice_support=1
 
