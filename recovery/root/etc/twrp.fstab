@@ -1,9 +1,13 @@
-/boot		   emmc		/dev/block/platform/mtk-msdc.0/by-name/boot
-/logo              emmc         /dev/block/platform/mtk-msdc.0/by-name/logo flags=display="Logo";backup=1
-/system		   auto		/dev/block/platform/mtk-msdc.0/by-name/system
-/cache		   ext4		/dev/block/platform/mtk-msdc.0/by-name/cache
-/data		   ext4		/dev/block/platform/mtk-msdc.0/by-name/userdata
-/nvram 		   emmc         /dev/block/platform/mtk-msdc.0/by-name/nvram flags=display="IMEI/NVRAM";backup=1
-/sec_ro 	   emmc         /dev/block/platform/mtk-msdc.0/by-name/secro flags=subpartitionof=/nvram;backup=1
-/recovery	   emmc		/dev/block/platform/mtk-msdc.0/by-name/recovery flags=display="Recovery";backup=1;
-/external_sd  vfat          /dev/block/mmcblk1p1 /dev/block/mmcblk1           flags=display="Micro-SD";storage;wipeingui;removable
+# Android fstab file.
+# The filesystem that contains the filesystem checker binary (typically /system) cannot
+# specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
+
+/boot          emmc     /dev/block/platform/mtk-msdc.0/by-name/boot
+/logo          emmc     /dev/block/platform/mtk-msdc.0/by-name/logo        flags=display="Logo";backup=1
+/system        auto     /dev/block/platform/mtk-msdc.0/by-name/system
+/cache         ext4     /dev/block/platform/mtk-msdc.0/by-name/cache
+/data          ext4     /dev/block/platform/mtk-msdc.0/by-name/userdata
+/nvram         emmc     /dev/block/platform/mtk-msdc.0/by-name/nvram       flags=display="IMEI/NVRAM";backup=1
+/sec_ro        emmc     /dev/block/platform/mtk-msdc.0/by-name/secro       flags=subpartitionof=/nvram;backup=1
+/recovery      emmc     /dev/block/platform/mtk-msdc.0/by-name/recovery    flags=display="Recovery";backup=1;
+/external_sd   vfat     /dev/block/mmcblk1p1 /dev/block/mmcblk1            flags=display="Micro-SD";storage;wipeingui;removable
