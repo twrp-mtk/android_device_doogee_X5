@@ -28,17 +28,17 @@ on init
 
     export USBOTG_STORAGE /storage/usbotg
 # Temp Backward compatibility
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/boot /dev/bootimg
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/recovery /dev/recovery
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/secro  /dev/sec_ro
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/kb /dev/kb
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/dkb /dev/dkb
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/seccfg /dev/seccfg
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/proinfo /dev/pro_info
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/nvram /dev/nvram
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/para /dev/misc
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/logo /dev/logo
-    symlink /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/misc2 /dev/misc2
+    symlink /dev/block/platform/mtk-msdc.0/by-name/boot /dev/bootimg
+    symlink /dev/block/platform/mtk-msdc.0/by-name/recovery /dev/recovery
+    symlink /dev/block/platform/mtk-msdc.0/by-name/secro  /dev/sec_ro
+    symlink /dev/block/platform/mtk-msdc.0/by-name/kb /dev/kb
+    symlink /dev/block/platform/mtk-msdc.0/by-name/dkb /dev/dkb
+    symlink /dev/block/platform/mtk-msdc.0/by-name/seccfg /dev/seccfg
+    symlink /dev/block/platform/mtk-msdc.0/by-name/proinfo /dev/pro_info
+    symlink /dev/block/platform/mtk-msdc.0/by-name/nvram /dev/nvram
+    symlink /dev/block/platform/mtk-msdc.0/by-name/para /dev/misc
+    symlink /dev/block/platform/mtk-msdc.0/by-name/logo /dev/logo
+    symlink /dev/block/platform/mtk-msdc.0/by-name/misc2 /dev/misc2
 
 # Temp Backward compatibility
     mkdir /protect_f 0771 system system
@@ -67,33 +67,33 @@ on init
 on fs
     write /proc/bootprof "INIT:Mount_START"
     mount_all /fstab.mt6580
-    exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/userdata
+    exec /system/bin/tune2fs -O has_journal -u 10010 -r 4096 /dev/block/platform/mtk-msdc.0/by-name/userdata
 
     # Trying to fix nvram block device permissions
 
-    #chown root system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/nvram
-    #chmod 0777 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/nvram
-    #exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/nvram
-    #exec /system/bin/chmod 0777 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/nvram
+    #chown root system /dev/block/platform/mtk-msdc.0/by-name/nvram
+    #chmod 0777 /dev/block/platform/mtk-msdc.0/by-name/nvram
+    #exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/nvram
+    #exec /system/bin/chmod 0777 /dev/block/platform/mtk-msdc.0/by-name/nvram
 
-    exec /system/bin/chmod 0640 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/boot
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/boot
-    exec /system/bin/chmod 0640 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/recovery
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/recovery
-    exec /system/bin/chmod 0640 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/secro
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/secro
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/seccfg
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/seccfg
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/proinfo
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/proinfo
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/otp
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/otp
-    exec /system/bin/chmod 0777 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/nvram
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/nvram
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/para
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/para
-    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/logo
-    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/11120000.msdc0/by-name/logo
+    exec /system/bin/chmod 0640 /dev/block/platform/mtk-msdc.0/by-name/boot
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/boot
+    exec /system/bin/chmod 0640 /dev/block/platform/mtk-msdc.0/by-name/recovery
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/recovery
+    exec /system/bin/chmod 0640 /dev/block/platform/mtk-msdc.0/by-name/secro
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/secro
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/seccfg
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/seccfg
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/proinfo
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/proinfo
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/otp
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/otp
+    exec /system/bin/chmod 0777 /dev/block/platform/mtk-msdc.0/by-name/nvram
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/nvram
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/para
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/para
+    exec /system/bin/chmod 0660 /dev/block/platform/mtk-msdc.0/by-name/logo
+    exec /system/bin/chown root:system /dev/block/platform/mtk-msdc.0/by-name/logo
 
     write /proc/bootprof "INIT:Mount_END"
 
@@ -556,6 +556,7 @@ on post-fs-data
     chmod 0660 /dev/kd_camera_flashlight
     chmod 0660 /dev/kd_camera_hw_bus2
     chmod 0660 /dev/FM50AF
+    chmod 0660 /dev/DW9714AF
     chmod 0660 /dev/CAM_CAL_DRV
 
     chown system camera /dev/camera-sysram
@@ -566,6 +567,7 @@ on post-fs-data
     chown system camera /dev/kd_camera_flashlight
     chown system camera /dev/kd_camera_hw_bus2
     chown system camera /dev/FM50AF
+    chmod 0660 /dev/DW9714AF
     chown system camera /dev/CAM_CAL_DRV
 		
     #MATV

@@ -45,8 +45,7 @@ ro.sf.lcd_density=320
 # performance
 ro.mtk_perf_simple_start_win=1
 ro.mtk_perf_response_time=1
-
-persist.sys.timezone = Europe/Amsterdam
+persist.sys.timezone = Europe/Moscow
 
 ro.mtk_perfservice_support=1
 
@@ -54,7 +53,7 @@ persist.logd.logpersistd=logcatd
 
 ro.telephony.ril_class=MT6580
 ro.kernel.android.checkjni=0
-ro.telephony.ril.config=signalstrength
+ro.telephony.ril.config=fakeiccid
 ro.telephony.default_network=9
 
 # ClearMotion

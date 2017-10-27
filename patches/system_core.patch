@@ -1,3 +1,35 @@
+From 6f8136eb44240ef1d77d02d5119d689183831335 Mon Sep 17 00:00:00 2001
+From: Dmitry Smirnov <divis1969@gmail.com>
+Date: Mon, 14 Nov 2016 23:30:38 +0300
+Subject: [PATCH 1/2] Remove CAP_SYS_NICE from surfaceflinger
+
+This capability causes surfaceflinger to be treated as a secure process
+(AT_SECURE) and linker ignores LD_PRELOAD and LD_SHIM_LIBS but we need these!
+
+Change-Id: Ie9451a970bf43ec864b626e4d3e646bd17869c67
+---
+ libcutils/fs_config.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/libcutils/fs_config.c b/libcutils/fs_config.c
+index 68cfcbe..f192386 100644
+--- a/libcutils/fs_config.c
++++ b/libcutils/fs_config.c
+@@ -143,7 +143,8 @@ static const struct fs_path_config android_files[] = {
+     { 00700, AID_SYSTEM,    AID_SHELL,     CAP_MASK_LONG(CAP_BLOCK_SUSPEND), "system/bin/inputflinger" },
+ 
+     /* Support FIFO scheduling mode in SurfaceFlinger. */
+-    { 00755, AID_SYSTEM,    AID_GRAPHICS,     CAP_MASK_LONG(CAP_SYS_NICE), "system/bin/surfaceflinger" },
++    /* Disabled for now as this caused LD_PRELOAD and LD_SHIM_LIBS to be sanitized in linker */
++    //{ 00755, AID_SYSTEM,    AID_GRAPHICS,     CAP_MASK_LONG(CAP_SYS_NICE), "system/bin/surfaceflinger" },
+ 
+     { 00750, AID_ROOT,      AID_ROOT,      0, "system/bin/uncrypt" },
+     { 00750, AID_ROOT,      AID_ROOT,      0, "system/bin/install-recovery.sh" },
+-- 
+1.9.1
+
+
+
 From f6c94da2dc95f9db68acd283bc0cc76505ebaf91 Mon Sep 17 00:00:00 2001
 From: DeckerSU <support@decker.su>
 Date: Fri, 24 Feb 2017 16:27:00 +0300
@@ -347,6 +379,50 @@ index 7739cf4..fcf0529 100644
 +}
 +
 +#endif /* MTK_HARDWARE */
+-- 
+2.7.4
+
+
+
+From 25e37a5bd3572149756410a719e436a40b3f2783 Mon Sep 17 00:00:00 2001
+From: DeckerSU <support@decker.su>
+Date: Fri, 24 Feb 2017 15:25:01 +0300
+Subject: [PATCH] [PATCH] xen0n: some MTK services (e.g. ril-daemon-mtk)
+ require very  large number +// of sockets, which can't be contained in 32
+ entries minus  other variables. +static const char *ENV[64];
+
+Change-Id: Ia1602cdc6d36bead4ce8a49e323a29eda6c53022
+---
+ init/init.cpp | 2 +-
+ init/init.h   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/init/init.cpp b/init/init.cpp
+index 9992b47..9a24167 100755
+--- a/init/init.cpp
++++ b/init/init.cpp
+@@ -85,7 +85,7 @@ int have_console;
+ std::string console_name = "/dev/console";
+ static time_t process_needs_restart;
+ 
+-const char *ENV[32];
++const char *ENV[64];
+ 
+ bool waiting_for_exec = false;
+ 
+diff --git a/init/init.h b/init/init.h
+index 345d442..f93d0c5 100644
+--- a/init/init.h
++++ b/init/init.h
+@@ -24,7 +24,7 @@ class Service;
+ 
+ #define COMMAND_RETRY_TIMEOUT 5
+ 
+-extern const char *ENV[32];
++extern const char *ENV[64];
+ extern bool waiting_for_exec;
+ extern int have_console;
+ extern std::string console_name;
 -- 
 2.7.4
 

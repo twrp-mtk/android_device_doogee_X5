@@ -60,7 +60,7 @@ TARGET_KMODULES := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := X5
 
-#COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
+# COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Disable memcpy opt (for audio libraries)
@@ -100,15 +100,15 @@ BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/doogee/X5/bluetooth
 
 # Offline charging
-BOARD_CHARGING_MODE_BOOTING_LPM := /sys/class/BOOT/BOOT/boot/boot_mode
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
-BOARD_CHARGER_ENABLE_SUSPEND := true
-BOARD_CHARGER_SHOW_PERCENTAGE := true
 
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
+# CWM
 TARGET_RECOVERY_FSTAB := device/doogee/X5/rootdir/root/recovery.fstab
+TARGET_PREBUILT_RECOVERY_KERNEL := device/doogee/X5/kernel
+BOARD_HAS_NO_SELECT_BUTTON := true
 
 # TWRP stuff
 TW_THEME := portrait_hdpi
@@ -138,4 +138,4 @@ POLICYVERS := 29
 BOARD_SECCOMP_POLICY += device/doogee/X5/seccomp
 
 BLOCK_BASED_OTA := false
-TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so:libmtk_shims.so
+TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so
