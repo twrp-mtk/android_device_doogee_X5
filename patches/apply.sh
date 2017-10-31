@@ -16,8 +16,8 @@
  cd bionic
  patch -p1 < ../device/doogee/X5/patches/bionic.patch
  cd ..
- cd packages/apps/FMRadio/jni/fmr
- patch -p1 < ../../../../../device/doogee/X5/patches/packages_apps_FMRadio_jni_fmr.patch
- cd ../../../../..
+ cd packages/apps/FMRadio
+ patch -p1 < ../../../device/doogee/X5/patches/packages_apps_FMRadio_jni_fmr.patch
+ cd ../../..
  
  echo Successfuly patched! Go ahead and start building!
