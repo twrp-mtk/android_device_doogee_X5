@@ -14,10 +14,10 @@
  patch -p1 < ../../device/doogee/X5/patches/frameworks_av.patch
  cd ../..
  cd bionic
- patch -p1 < ../../device/doogee/X5/patches/bionic.patch
+ patch -p1 < ../device/doogee/X5/patches/bionic.patch
  cd ..
  cd packages/apps/FMRadio/jni/fmr
- patch -p1 < ../../device/doogee/X5/patches/packages_apps_FMRadio_jni_fmr.patch
+ patch -p1 < ../../../../../device/doogee/X5/patches/packages_apps_FMRadio_jni_fmr.patch
  cd ../../../../..
  
  echo Successfuly patched! Go ahead and start building!
