@@ -168,7 +168,7 @@ PRODUCT_PACKAGES += \
     libmrdump \
     mrdump_tool
 
-##GPS
+#GPS
 PRODUCT_PACKAGES += \
 	gps.mt6580
 
