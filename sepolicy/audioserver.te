@@ -1,0 +1,2 @@
+allow audioserver nvram_device:blk_file { open read write };
+

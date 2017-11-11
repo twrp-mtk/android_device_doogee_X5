@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-# Specify phone tech before including full_phone
-
 # Release name
 PRODUCT_RELEASE_NAME := X5
 

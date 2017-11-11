@@ -12,12 +12,15 @@
  cd ../..
  cd frameworks/av
  patch -p1 < ../../device/doogee/X5/patches/frameworks_av.patch
+ cd ..
+ cd native
+ patch -p1 < ../../device/doogee/X5/patches/frameworks_native.patch
+ cd ..
+ cd base
+ patch -p1 < ../../device/doogee/X5/patches/frameworks_base.patch
  cd ../..
  cd bionic
  patch -p1 < ../device/doogee/X5/patches/bionic.patch
  cd ..
- cd packages/apps/FMRadio
- patch -p1 < ../../../device/doogee/X5/patches/packages_apps_FMRadio_jni_fmr.patch
- cd ../../..
  
  echo Successfuly patched! Go ahead and start building!

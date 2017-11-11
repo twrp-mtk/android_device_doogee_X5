@@ -13,6 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+#
 
 # inherit from the proprietary version
 -include vendor/doogee/X5/BoardConfigVendor.mk
@@ -60,7 +61,6 @@ TARGET_KMODULES := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := X5
 
-# COMMON_GLOBAL_CFLAGS += -DDISABLE_HW_ID_MATCH_CHECK
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
 # Disable memcpy opt (for audio libraries)
@@ -74,6 +74,7 @@ TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
 
 # MTK Hardware
 BOARD_HAS_MTK_HARDWARE := true
+BOARD_USES_MTK_HARDWARE := true
 MTK_HARDWARE := true
 
 # RIL 
@@ -108,6 +109,7 @@ BOARD_CHARGER_SHOW_PERCENTAGE := true
 # Sensors
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
+# Recovery
 TARGET_RECOVERY_FSTAB := device/doogee/X5/rootdir/root/recovery.fstab
 
 # TWRP stuff
@@ -139,3 +141,4 @@ BOARD_SECCOMP_POLICY += device/doogee/X5/seccomp
 
 BLOCK_BASED_OTA := false
 TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so
+
